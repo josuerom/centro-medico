@@ -1,6 +1,7 @@
 -- @basededatos CentroMedico
--- @autor Josué Romero https://github.com/josuerom
--- @fecha 25/08/2022 20:21 HRS
+-- @autor Josué Romero
+-- @web https://github.com/josuerom/centro-medico/blob/main/QueryTables_CentroMedico.sql
+-- @fecha 23/08/2022 20:21 HRS
 
 CREATE TABLE Paciente (
 	IdPaciente INT PRIMARY KEY IDENTITY(1,1),
@@ -99,9 +100,9 @@ CREATE TABLE PagoPaciente (
 
 -- Inserto tres registro para cada tabla
 INSERT INTO Paciente(Dni, Nombre, Apellido, FNacimiento, Domicilio, IdPais, Telefono, Correo, Observaciones)
-	VALUES(1001034665, 'Josu�', 'Romero Jarava', '2002-02-10', 'Av Cra. 30 #5-23', 57, '3002349876', 'josueromram@outlok.es', 'El estudiante tiene un buen desempe�o academico fura y dentro de clase.'),
-	(34943229, 'Eugenia', 'Castro Lora', '1970-07-03', 'Av Cl. 26 #40-19', 55, '3208723578', 'eugeniacastro@gmail.com', 'La se�ora es una persona trabajadora y muy confiada.'),
-	(1104410779, 'Cristina', 'Ferrer Vargas', '2004-12-24', 'Cra. 78B #80-45', 58, '3134427723', 'cristina.ferrer-v@uniminuto.edu.co', 'La se�orita ha demostrado estar muy acta para desempe�ar el cargo manipuladora de palo');
+	VALUES(1001034665, 'Josué', 'Romero Jarava', '2002-02-10', 'Av Cra. 30 #5-23', 57, '3002349876', 'josueromram@outlok.es', 'El estudiante tiene un buen desempeño academico fura y dentro de clase.'),
+	(34943229, 'Eugenia', 'Castro Lora', '1970-07-03', 'Av Cl. 26 #40-19', 55, '3208723578', 'eugeniacastro@gmail.com', 'La señora es una persona trabajadora y muy confiada.'),
+	(1104410779, 'Cristina', 'Ferrer Vargas', '2004-12-24', 'Cra. 78B #80-45', 58, '3134427723', 'cristina.ferrer-v@uniminuto.edu.co', 'La señorita ha demostrado estar muy acta para desempeñar el cargo manipuladora de palo');
 
 INSERT INTO Pais(Pais)
 	VALUES ('Colombia'),
@@ -125,7 +126,7 @@ INSERT INTO Historia(FechaHistoria, Observaciones)
 
 INSERT INTO Medico(Nombre, Apellido)
 	VALUES('Arcangel', 'Maravilla'),
-	('Juan', 'Pi�a'),
+	('Juan', 'Piña'),
 	('Carolina', 'Hormonas');
 
 INSERT INTO TurnoEstado(Descripcion)
@@ -139,21 +140,18 @@ INSERT INTO Turno(FechaTurno, Estado, Observaciones)
 	('2022-09-02', '3', 'Piso 3 consultorio C6');
 
 INSERT INTO Pago(Concepto, Fecha, Monto, Estado, Observaciones)
-	VALUES('Consulta m�dica', '2022-08-25', 200000, '1', 'La consulta fue realizada por el oncologo AM'),
-	('Consulta m�dica', '2022-08-26', 180000, '2', 'La consulta est� en espera por el ginecologo JP'),
-	('Consulta m�dica', '2022-08-27', 100000, '3', 'La consulta fue cancelada por la optometra CH');
+	VALUES('Consulta médica', '2022-08-25', 200000, '1', 'La consulta fue realizada por el oncologo AM'),
+	('Consulta médica', '2022-08-26', 180000, '2', 'La consulta está en espera por el ginecologo JP'),
+	('Consulta médica', '2022-08-27', 100000, '3', 'La consulta fue cancelada por la optometra CH');
 
 INSERT INTO Concepto(Descripcion)
 	VALUES('El paciente fue atendido a eso de las 6:00 hrs...'),
-	('La paciente est� en espera por su cita m�dica'),
-	('La paciente le han cancelado la cita m�dica');
+	('La paciente está en espera por su cita médica'),
+	('La paciente le han cancelado la cita médica');
 
--- No inserto registros para las tres tablas que contienen campos foranéos
---INSERT INTO PagoPaciente() VALUES();
---INSERT INTO TurnoPaciente() VALUES();
---INSERT INTO MedicoEspecialidad() VALUES(');
+-- No les inserto registros a las tres tablas que contienen claves foranéas
 
--- Imprimo el contenido de cada tabla por separado
+-- Imprimo el contenido de cada tabla en una sola ejecución por separado
 SELECT * FROM Paciente;
 SELECT * FROM Pais;
 SELECT * FROM Especialidad;
@@ -164,6 +162,9 @@ SELECT * FROM TurnoEstado;
 SELECT * FROM Turno;
 SELECT * FROM Pago;
 SELECT * FROM Concepto;
+SELECT * FROM PagoPaciente;
+SELECT * FROM TurnoPaciente;
+SELECT * FROM MedicoEspecialidad;
 SELECT * FROM PagoPaciente;
 SELECT * FROM TurnoPaciente;
 SELECT * FROM MedicoEspecialidad;
